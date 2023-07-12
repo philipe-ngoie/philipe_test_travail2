@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "933168654664",
+    "firebase_url": "https://testtravail-af270-default-rtdb.firebaseio.com",
+    "project_id": "testtravail-af270",
+    "storage_bucket": "testtravail-af270.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933168654664:android:566fa92a6d646413f82b7d",
+        "android_client_info": {
+          "package_name": "com.example.philipetesttravail"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "933168654664-pft9m4v7496ggom8d7j93tufdfr1kt3b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZUN-axvCTbMVC5PXQC3tk8daOO6ZOpWY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "933168654664-6c4sb5hkhbko0fn82pbr66f7c62q4hs2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

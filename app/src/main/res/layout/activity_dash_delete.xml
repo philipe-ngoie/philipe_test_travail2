@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".signUp.SignUp">
+
+    <TextView
+        android:id="@+id/enregitrText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Modifier vos information"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_alignParentTop="true" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-200dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <!-- Password TextInputLayout -->
+            <TextView
+                android:id="@+id/usernameR"
+                android:layout_width="335dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Votre nom"
+                android:inputType="text"
+                android:maxLines="1" />
+
+            <TextView
+                android:id="@+id/emailOldEditText"
+
+                android:layout_width="335dp"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/baseline_email_24"
+                android:hint="Adresse mail actuelle"
+                android:inputType="textEmailAddress" />
+
+
+            <!-- <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/motPass1"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="335dp"
+                android:layout_height="94dp"
+                app:counterEnabled="true"
+                app:helperTextEnabled="true"
+                app:passwordToggleEnabled="true"
+                tools:counterEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordR"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/baseline_vpn_key_24"
+                    android:ems="10"
+                    android:hint="Nouveau Mot de passe"
+                    android:inputType="textPassword"
+                    app:layout_constraintBottom_toBottomOf="@+id/passwordOldLayout"
+                    app:layout_constraintEnd_toEndOf="@+id/passwordOldLayout"
+                    app:layout_constraintHorizontal_bias="0.704"
+                    app:layout_constraintStart_toStartOf="@+id/passwordOldLayout"
+                    app:layout_constraintTop_toTopOf="@+id/passwordOldLayout"
+                    app:layout_constraintVertical_bias="0.282" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/motPass2"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="335dp"
+                android:layout_height="94dp"
+                app:counterEnabled="true"
+                app:helperTextEnabled="true"
+                app:passwordToggleEnabled="true"
+                tools:counterEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordR2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/baseline_vpn_key_24"
+                    android:ems="10"
+                    android:hint="Confirmer le nouveau mot de passe"
+                    android:inputType="textPassword"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView27"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView27"
+                    app:layout_constraintStart_toStartOf="@+id/imageView27"
+                    app:layout_constraintTop_toBottomOf="@+id/passwordOldLayout" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+-->
+
+            <!--   <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/userMailL"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="333dp"
+                android:layout_height="84dp">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EmailR"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/baseline_email_24"
+                    android:ems="10"
+                    android:hint="Nouvelle Adresse Email"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    app:layout_constraintBottom_toBottomOf="@+id/emailLaiyout"
+                    app:layout_constraintEnd_toEndOf="@+id/emailLaiyout"
+                    app:layout_constraintHorizontal_bias="0.745"
+                    app:layout_constraintStart_toStartOf="@+id/emailLaiyout"
+                    app:layout_constraintTop_toTopOf="@+id/emailLaiyout"
+                    app:layout_constraintVertical_bias="0.179" />
+            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordOldLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="335dp"
+                android:layout_height="94dp"
+                app:counterEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordOldEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/baseline_vpn_key_24"
+                    android:hint="mot de passe"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <Button
+                android:id="@+id/register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="48dp"
+                android:backgroundTint="#7B3CEA"
+                android:gravity="center"
+                android:text="Confirmer"
+                android:textColor="#FFFFFF"
+                app:layout_constraintVertical_bias="1.0" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="110dp"
+        android:layout_height="99dp"
+
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
