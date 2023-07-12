@@ -111,6 +111,7 @@ class LoginActivity : BaseClass() {
                         startActivity(intent)
                         finish()
                     }else{
+                        progessb(false)
                         showToast("Vous n'avez pas verifier votre adresse email")
                     }
 
