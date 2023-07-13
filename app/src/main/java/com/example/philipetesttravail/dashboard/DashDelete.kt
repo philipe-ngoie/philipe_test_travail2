@@ -1,22 +1,17 @@
 package com.example.philipetesttravail.dashboard
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.example.philipetesttravail.MainActivity
-import com.example.philipetesttravail.areFieldsNotEmpty
-import com.example.philipetesttravail.connection.password.Password
-import com.example.philipetesttravail.data.model.User
 import com.example.philipetesttravail.databinding.ActivityDashDeleteBinding
-import com.example.philipetesttravail.databinding.ActivityDashModifyBinding
 import com.example.philipetesttravail.heritage.BaseClass
 import com.example.philipetesttravail.showToast
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.EmailAuthProvider
-import com.google.firebase.auth.UserProfileChangeRequest
-import com.google.firebase.database.FirebaseDatabase
 
 class DashDelete : BaseClass() {
     private lateinit var binding: ActivityDashDeleteBinding
@@ -66,11 +61,24 @@ class DashDelete : BaseClass() {
                         val firebaseUser = super.getCurrentUser()
                         firebaseUser?.delete()?.addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                super.auth().signOut()
-                                progessb(false)
-                                showToast("Compte suprimer avec succes")
-                                val intent = Intent(this, MainActivity::class.java)
-                                startActivity(intent)
+                                runOnUiThread {
+                                    super.auth().signOut()
+
+                                    if (super.auth().currentUser != null) {
+                                        super.auth().signOut()
+                                    } else {
+                                        progessb(false)
+                                        showToast("Compte suprimer avec succes")
+                                        val packageManager: PackageManager = applicationContext.packageManager
+                                        val intent = packageManager.getLaunchIntentForPackage(applicationContext.packageName)
+                                        intent?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                                        //val intent = Intent(this, MainActivity::class.java)
+                                        startActivity(intent)
+                                    }
+                                }
+
+
+
                             } else {
                                 showToast(task.exception.toString())
                                 progessb(false)

@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Toast
 import com.example.philipetesttravail.R
 import com.example.philipetesttravail.areFieldsNotEmpty
+import com.example.philipetesttravail.dashboard.DashDelete
 import com.example.philipetesttravail.data.model.User
 import com.example.philipetesttravail.databinding.ActivitySignInBinding
 import com.example.philipetesttravail.databinding.ActivitySignUpBinding
@@ -18,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.FirebaseDatabase
 
 class SignUp : BaseClass() {
@@ -32,7 +34,12 @@ class SignUp : BaseClass() {
         val passwordEdit2=viewBinding.passwordR2
         val emailEdit=viewBinding.EmailR
         val signUpButton=viewBinding.register
-
+        viewBinding.loginText.setOnClickListener {
+            val intent= Intent(this, LoginActivity::class.java)
+            //intent.putExtra("mail")
+            startActivity(intent)
+            finish()
+        }
         signUpButton.setOnClickListener {
             if (viewBinding.root.areFieldsNotEmpty(applicationContext)) {
                 if (viewBinding.passwordR.text.toString()==viewBinding.passwordR2.text.toString()) {
@@ -66,18 +73,29 @@ class SignUp : BaseClass() {
                         }
                     }
                         val user = User(userName,email,password)
-                        FirebaseDatabase.getInstance().getReference("Users")
-                            .child(super.getUid())
-                            .setValue(user).addOnCompleteListener { task ->
-                                if (task.isSuccessful) {
-                                    showToast("Utilisateur ajouter avec succes")
-                                    progessb(false)
-                                    startActivityLogin(email,password)
+                        val updates = UserProfileChangeRequest.Builder()
+                            .setDisplayName(userName)
+                            .build()
+                        super.getCurrentUser()!!.updateProfile(updates).addOnCompleteListener { task1 ->
+                            if (task1.isSuccessful) {
+                                FirebaseDatabase.getInstance().getReference("Users")
+                                    .child(super.getUid())
+                                    .setValue(user).addOnCompleteListener { task ->
+                                        if (task.isSuccessful) {
 
-                                } else {
-                                    progessb(false)
-                                }
+                                            showToast("Utilisateur ajouter avec succes")
+                                            progessb(false)
+                                            startActivityLogin(email, password)
+
+                                        } else {
+                                            progessb(false)
+                                        }
+                                    }
+                            }else{
+                                showToast(task1.exception.toString())
+                                progessb(false)
                             }
+                        }
                     } else {
                         showToast("Echec d'enregistrement")
                         progessb(false)
@@ -100,5 +118,6 @@ class SignUp : BaseClass() {
         intent.putExtra("mail",email)
         intent.putExtra("password",password)
         startActivity(intent)
+        finish()
     }
 }

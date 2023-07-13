@@ -84,11 +84,13 @@ class DashModify : BaseClass() {
         user?.reauthenticate(credential)?.addOnCompleteListener {
             if (it.isSuccessful) {
                 showToast("reauthentification reussi")
-                user.updateEmail(email1).addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
+                user.updateProfile(updates).addOnCompleteListener { task1 ->
+                    if (task1.isSuccessful) {
+                        user.updateEmail(email1).addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
 
 
-                                val user = User(name,email1,password)
+                                val user = User(name, email1, password)
                                 FirebaseDatabase.getInstance().getReference("Users")
                                     .child(super.getUid())
                                     .setValue(user).addOnCompleteListener { task ->
@@ -102,15 +104,17 @@ class DashModify : BaseClass() {
                                     }
 
 
-
-
-
-
-                    } else {
-                        showToast("Échec de la mise à jour de l'e-mail.${task.exception}")
+                            } else {
+                                showToast("Échec de la mise à jour de l'e-mail.${task.exception}")
+                                progessb(false)
+                            }
+                        }
+                    }else{
+                        showToast(task1.exception.toString())
                         progessb(false)
                     }
                 }
+
             } else {
                 showToast(it.exception.toString())
 

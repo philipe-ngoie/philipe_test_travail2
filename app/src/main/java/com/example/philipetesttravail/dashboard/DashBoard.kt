@@ -1,5 +1,6 @@
 package com.example.philipetesttravail.dashboard
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -26,6 +27,7 @@ class DashBoard : BaseClass() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: DashbordBinding
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
@@ -43,9 +45,11 @@ class DashBoard : BaseClass() {
             //intent.putExtra("mail")
             startActivity(intent)
         }
+
         val user = super.getCurrentUser()
         user?.let {
             val name = it.displayName
+            binding.textView3.text = "Bienvenue ${name}"
             val email = it.email
             val photoUrl = it.photoUrl
 

@@ -4,9 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".dashboard.DashBoard">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="200dp"
+        android:gravity="center"
+        android:text="Bienvenue"
+        android:textColor="#2196F3"
+        android:textSize="26sp" />
 
     <Button
         android:id="@+id/modifier"

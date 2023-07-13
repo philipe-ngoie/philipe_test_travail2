@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.example.philipetesttravail.areFieldsNotEmpty
 import com.example.philipetesttravail.connection.password.Password
 import com.example.philipetesttravail.dashboard.DashBoard
+import com.example.philipetesttravail.dashboard.DashDelete
 import com.example.philipetesttravail.data.model.User
 import com.example.philipetesttravail.databinding.ActivitySignInBinding
 import com.example.philipetesttravail.heritage.BaseClass
@@ -88,6 +89,7 @@ class LoginActivity : BaseClass() {
             val intent=Intent(this, Password::class.java)
             startActivity(intent)
         }
+
         }
 
 
